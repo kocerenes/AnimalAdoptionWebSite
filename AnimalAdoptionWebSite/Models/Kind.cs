@@ -14,6 +14,7 @@ namespace AnimalAdoptionWebSite.Models
 
         [Required(ErrorMessage = "Bu alanı doldurmak zorunlu!")]
         [MaxLength(25, ErrorMessage = "25 karakteri aşmayınız!")]
+        [Display(Name = "Tür Adı")]
         public string TYPE_NAME { get; set; }
 
         //bir tür birden fazla hayvana ait olabilir.

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AnimalAdoptionWebSite.Models.Kind>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<h3 style="margin-top:30px;">TÜR İŞLEMLERİ</h3>
+
+<table class="table table-striped" style="margin-top:30px;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TYPE_NAME)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TYPE_NAME)
+            </td>
+            <td class="text-right">
+                <a asp-action="Edit" asp-route-id="@item.KIND_ID" class="btn btn-warning">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.KIND_ID" class="btn btn-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.KIND_ID" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-action="AddKind" class="btn btn-primary">Yeni Tür Ekle</a>
+</p>
