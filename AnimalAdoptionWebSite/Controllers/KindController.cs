@@ -46,9 +46,9 @@ namespace AnimalAdoptionWebSite.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteKind(int? id)
+        public IActionResult DeleteKind(int id)
         {
-            var kind = context.Kinds.Find(id);
+            var kind = context.Kinds.Where(x => x.KIND_ID == id).FirstOrDefault();
             context.Kinds.Remove(kind);
             context.SaveChanges();
             return View();
