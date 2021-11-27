@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AnimalAdoptionWebSite.Models.Animal>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<h3 style="margin-top:30px;">Hayvan İşlemleri</h3>
+
+<table class="table table-hover">
+    <thead>
+        <tr style="text-align: center;">
+            <th>
+                @Html.DisplayNameFor(model => model.Kind)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GENUS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AGE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STATUS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr style="text-align: center;">
+            <td>
+                @Html.DisplayFor(modelItem => item.Kind.TYPE_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GENUS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AGE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CITY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STATUS)
+            </td>
+            <td>
+                <a asp-action="GetAnimal" asp-route-id="@item.ANIMAL_ID" class="btn btn-warning">Güncelle</a> 
+                <a asp-action="DeleteAnimal" asp-route-id="@item.ANIMAL_ID" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-action="AddAnimal" class="btn btn-primary">Yeni Oluştur</a>
+</p>

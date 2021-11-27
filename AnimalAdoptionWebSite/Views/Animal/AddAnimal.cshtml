@@ -1,0 +1,54 @@
+﻿@model AnimalAdoptionWebSite.Models.Animal
+
+@{
+    ViewData["Title"] = "AddAnimal";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<h3 style="margin-top:30px;">Hayvan Ekleme Sayfası</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddAnimal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="KIND_ID" class="control-label"></label>
+                <select asp-for="KIND_ID" class ="form-control" asp-items="ViewBag.fetchKindList"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NAME" class="control-label"></label>
+                <input asp-for="NAME" class="form-control" />
+                <span asp-validation-for="NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GENUS" class="control-label"></label>
+                <input asp-for="GENUS" class="form-control" />
+                <span asp-validation-for="GENUS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AGE" class="control-label"></label>
+                <input asp-for="AGE" class="form-control" />
+                <span asp-validation-for="AGE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CITY" class="control-label"></label>
+                <input asp-for="CITY" class="form-control" />
+                <span asp-validation-for="CITY" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="STATUS" /> @Html.DisplayNameFor(model => model.STATUS)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
+
