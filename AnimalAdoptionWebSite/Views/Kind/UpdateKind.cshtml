@@ -1,30 +1,32 @@
 ﻿@model AnimalAdoptionWebSite.Models.Kind
 
 @{
-    ViewData["Title"] = "AddKind";
+    ViewData["Title"] = "UpdateKind";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-<h3 style="margin-top:30px;">Tür Ekleme Sayfası</h3>
+<h3 style="margin-top:30px;">Tür Güncelleme</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddKind">
+        <form asp-action="UpdateKind">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="KIND_ID" />
             <div class="form-group">
                 <label asp-for="TYPE_NAME" class="control-label"></label>
                 <input asp-for="TYPE_NAME" class="form-control" />
                 <span asp-validation-for="TYPE_NAME" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Oluştur" class="btn btn-primary" />
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Listeye Dön</a>
+    <a asp-action="Index">Listeye Geri Dön</a>
 </div>
 

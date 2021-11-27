@@ -39,19 +39,28 @@ namespace AnimalAdoptionWebSite.Controllers
         }
 
         //Türü silmek için action
-        [HttpGet]
-        public IActionResult DeleteKind()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult DeleteKind(int id)
         {
-            var kind = context.Kinds.Where(x => x.KIND_ID == id).FirstOrDefault();
-            context.Kinds.Remove(kind);
+            var fetchKind = context.Kinds.Where(x => x.KIND_ID == id).FirstOrDefault();
+            context.Kinds.Remove(fetchKind);
             context.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
+        }
+
+        //id sini verdiğimizde, kind bulması için gereken action
+        public IActionResult GetKind(int id)
+        {
+            var fetchKind = context.Kinds.Where(x => x.KIND_ID == id).FirstOrDefault();
+            return View("UpdateKind", fetchKind);
+        }
+
+        //tür adını güncellemek için action
+        public IActionResult UpdateKind(Kind kind)
+        {
+            var fetchKind = context.Kinds.Where(x => x.KIND_ID == kind.KIND_ID).FirstOrDefault();
+            fetchKind.TYPE_NAME = kind.TYPE_NAME;
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
