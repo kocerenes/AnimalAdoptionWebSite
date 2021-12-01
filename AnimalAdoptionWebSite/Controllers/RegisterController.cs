@@ -1,4 +1,5 @@
 ﻿using AnimalAdoptionWebSite.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace AnimalAdoptionWebSite.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         private readonly Context context;
@@ -23,14 +25,6 @@ namespace AnimalAdoptionWebSite.Controllers
         [HttpPost]
         public IActionResult Index(Member member)
         {
-            //if (string.IsNullOrEmpty(member.PHONENUMBER))
-            //{
-            //    member.PHONENUMBER = "---";
-            //}
-            //if (string.IsNullOrEmpty(member.ABOUT))
-            //{
-            //    member.ABOUT = "---";
-            //}
             context.Members.Add(member);
             context.SaveChanges();
             return RedirectToAction("Index","Home");

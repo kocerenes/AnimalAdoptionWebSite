@@ -1,4 +1,5 @@
 ﻿using AnimalAdoptionWebSite.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,6 +18,7 @@ namespace AnimalAdoptionWebSite.Controllers
             this.context = context;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var ListOfAnimal = context.Animals.Where(x => x.STATUS == true).ToList();
