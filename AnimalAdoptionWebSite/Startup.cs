@@ -44,6 +44,7 @@ namespace AnimalAdoptionWebSite
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
             {
                 x.LoginPath = "/Login/Index";
+                //x.LogoutPath = "/Home/Index";
             });
         }
 

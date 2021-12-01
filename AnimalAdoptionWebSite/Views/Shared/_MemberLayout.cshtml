@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/home_layout.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="header">
+        <a asp-controller="MemberPage" asp-action="Index" class="logo">Animal Adoption</a>
+        <div class="header-right">
+            <a asp-controller="MemberPage" asp-action="Profile"><i class="glyphicon glyphicon-home">&nbsp;Profil</i></a>
+            <a asp-controller="MemberPage" asp-action="Index"><i class="glyphicon glyphicon-home">&nbsp;Hayvanlar</i></a>
+            <a href="#"><i class="glyphicon glyphicon-home">&nbsp;Sahiplenme Geçmişi</i></a>
+            <a asp-controller="Login" asp-action="Logout" class="btn btn-danger"><i>&nbsp;Çıkış</i></a>
+        </div>
+    </div>
+
+    <div style="padding-left:20px">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

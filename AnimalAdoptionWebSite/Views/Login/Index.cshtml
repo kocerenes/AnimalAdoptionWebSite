@@ -4,16 +4,16 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
-
 
 <section>
     <div class="container">
         <h3 class="text-center p-3">Giriş Yap</h3>
         <div class="row">
             <div class="login p-5 bg-light mx-auto mw-100">
-                <form asp-action="Index" id="login-form">
+                <form asp-action="Index" method="post">
                     <div class="form-group">
                         <label>Mail Adresi</label>
                         <input asp-for="MAIL" type="email" class="form-control" aria-describedby="emailHelp">
@@ -22,8 +22,8 @@
                         <label>Şifre</label>
                         <input asp-for="PASSWORD" type="password" class="form-control">
                     </div>
-                    @*<input type="submit" class="btn btn-success submit mb-4">Giriş Yap</input>*@
-                    <input type="submit" value="Sign In" class="btn btn-primary" />
+                    <button type="submit" class="btn btn-success submit mb-4">Giriş Yap</button>
+                    @*<input type="submit" value="Sign In" class="btn btn-primary" />*@
                     <p><a asp-controller="Register" asp-action="Index"> Hesabın yok mu?</a></p>
                 </form>
             </div>

@@ -1,0 +1,59 @@
+﻿@model AnimalAdoptionWebSite.Models.Member
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<h3 style="margin-top:30px;">Profilinize Hoşgeldiniz</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Profile">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MEMBER_ID" />
+            @*<div class="form-group">
+                <label asp-for="NAMESURNAME" class="control-label"></label>
+                <input asp-for="NAMESURNAME" class="form-control" />
+                <span asp-validation-for="NAMESURNAME" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="MAIL" class="control-label"></label>
+                <input asp-for="MAIL" class="form-control" />
+                <span asp-validation-for="MAIL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PASSWORD" class="control-label"></label>
+                <input asp-for="PASSWORD" class="form-control" />
+                <span asp-validation-for="PASSWORD" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="AGE" class="control-label"></label>
+                <input asp-for="AGE" class="form-control" />
+                <span asp-validation-for="AGE" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="PHONENUMBER" class="control-label"></label>
+                <input asp-for="PHONENUMBER" class="form-control" />
+                <span asp-validation-for="PHONENUMBER" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ADDRESS" class="control-label"></label>
+                <input asp-for="ADDRESS" class="form-control" />
+                <span asp-validation-for="ADDRESS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ABOUT" class="control-label"></label>
+                <input asp-for="ABOUT" class="form-control" />
+                <span asp-validation-for="ABOUT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
