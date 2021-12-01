@@ -14,32 +14,32 @@ namespace AnimalAdoptionWebSite.Controllers
             return View();
         }
 
-        //Admin giriş
-        [HttpGet]
-        public IActionResult AdminLogin()
-        {
-            return View();
-        }
+        ////Admin giriş
+        //[HttpGet]
+        //public IActionResult AdminLogin()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult AdminLogin(Admin admin)
-        {
+        //[HttpPost]
+        //public IActionResult AdminLogin(Admin admin)
+        //{
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        //Üye Giriş
-        [HttpGet]
-        public IActionResult MemberLogin()
-        {
-            return View();
-        }
+        ////Üye Giriş
+        //[HttpGet]
+        //public IActionResult MemberLogin()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult MemberLogin(Member member)
-        {
+        //[HttpPost]
+        //public IActionResult MemberLogin(Member member)
+        //{
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }

@@ -18,16 +18,19 @@ body {
         color: black;
         text-align: center;
         padding: 12px;
-        margin-left: 12px;
+        margin-left:12px;
         text-decoration: none;
         font-size: 18px;
         line-height: 25px;
         border-radius: 4px;
     }
 
-.logout {
-    background-color: red;
-    color: ghostwhite;
+.loginAdmin {
+    background-color: lightblue;
+}
+
+.loginMember {
+    background-color: burlywood;
 }
 
 .header a.logo {

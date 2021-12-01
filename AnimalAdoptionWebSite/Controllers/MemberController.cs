@@ -10,7 +10,6 @@ namespace AnimalAdoptionWebSite.Controllers
     public class MemberController : Controller
     {
         private readonly Context context;
-
         public MemberController(Context context)
         {
             this.context = context;
@@ -35,7 +34,7 @@ namespace AnimalAdoptionWebSite.Controllers
             var fetchMember = context.Members.Where(x => x.MEMBER_ID == member.MEMBER_ID).FirstOrDefault();
             fetchMember.NAMESURNAME = member.NAMESURNAME;
             fetchMember.MAIL = member.MAIL;
-            fetchMember.PASSWORD = member.PASSWORD;
+            //fetchMember.PASSWORD = member.PASSWORD;
             fetchMember.AGE = member.AGE;
             fetchMember.PHONENUMBER = member.PHONENUMBER;
             fetchMember.ADDRESS = member.ADDRESS;

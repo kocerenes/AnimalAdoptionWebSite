@@ -37,6 +37,8 @@ namespace AnimalAdoptionWebSite.Models
         [Display(Name = "Şehir")]
         public string CITY { get; set; }
 
+        public string PHOTO { get; set; }
+
         [Display(Name = "Mevcut Durumu")]
         public bool STATUS { get; set; } = true; //sahiplenilen canlıların durumu false olacak
 
