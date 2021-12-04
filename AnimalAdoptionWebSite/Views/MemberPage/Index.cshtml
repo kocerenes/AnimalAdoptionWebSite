@@ -20,8 +20,7 @@
                             Yaşı : @Html.DisplayFor(modelItem => item.AGE) <br />
                             Bulunduğu Şehir : @Html.DisplayFor(modelItem => item.CITY)
                         </p>
-
-                        <button class="btn btn-info">Sahiplen</button>
+                        <a asp-action="CreateAdoption" asp-route-id="@item.ANIMAL_ID" class="btn btn-info">Sahiplen</a>
 
                     </div>
                 </div>

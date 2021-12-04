@@ -21,11 +21,6 @@ namespace AnimalAdoptionWebSite.Controllers
             var ListOfAnimal = context.Animals.Where(x => x.STATUS == true).ToList();
             return View(ListOfAnimal);
         }
-        [HttpPost]
-        public IActionResult Index(Animal animal)
-        {
-            return View();
-        }
 
         //giriş yapan üyeye ait bilgileri profil kısmına getirmek için yazdıgım actionlar
         [HttpGet]
@@ -49,6 +44,26 @@ namespace AnimalAdoptionWebSite.Controllers
             fetchMember.ABOUT = member.ABOUT;
             context.SaveChanges();
             return RedirectToAction("Index", "MemberPage");
+        }
+
+        //üyenin sahiplenme işlemi için oluşturduğum action
+        public IActionResult CreateAdoption(int id)
+        {
+            var fetchMemberMail = User.Identity.Name; //önce giriş yapanın mailini aldım
+            //giriş yapanın mailinden ID sine ulaştım 
+            var fetchMemberID = context.Members.Where(x => x.MAIL == fetchMemberMail).Select(y => y.MEMBER_ID).FirstOrDefault();
+
+            //sahiplenlen hayvanın durumunu false yapabilmek için gelen id ile animal nesnesini aldım
+            var fetchAnimal = context.Animals.Where(x => x.ANIMAL_ID == id).FirstOrDefault();
+
+            Adoption adoption = new Adoption();
+            adoption.ANIMAL_ID = id;
+            adoption.MEMBER_ID = fetchMemberID;
+            adoption.DATE = DateTime.Now;
+            fetchAnimal.STATUS = false; //hayvanın durumunu false yaptım
+            context.Adoptions.Add(adoption);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
