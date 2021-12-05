@@ -1,0 +1,67 @@
+﻿@model AnimalAdoptionWebSite.Models.Animal
+
+@{
+    ViewData["Title"] = "DetailsOfAnimal";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<h3 style="margin-top:30px;">@ViewBag.animalName Detayları</h3>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Kind)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GENUS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AGE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHOTO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STATUS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.Kind.TYPE_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.GENUS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.AGE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.CITY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.PHOTO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.STATUS)
+            </td>
+            <td>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

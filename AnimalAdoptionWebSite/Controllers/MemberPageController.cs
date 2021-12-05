@@ -1,5 +1,6 @@
 ﻿using AnimalAdoptionWebSite.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,29 @@ namespace AnimalAdoptionWebSite.Controllers
             context.Adoptions.Add(adoption);
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        //kullanıcının sahiplenmelerine bakmasını sağlayan action
+        public IActionResult ListOfAdoption()
+        {
+            var fetchMemberMail = User.Identity.Name; //önce giriş yapanın mailini aldım
+            //giriş yapanın mailinden ID sine ulaştım 
+            var fetchMemberID = context.Members.Where(x => x.MAIL == fetchMemberMail).Select(y => y.MEMBER_ID).FirstOrDefault();
+
+            var listOfAdoption = context.Adoptions
+                .Include(y => y.Member)
+                .Include(z => z.Animal)
+                .Where(x => x.MEMBER_ID == fetchMemberID)
+                .ToList();
+            return View(listOfAdoption);
+        }
+
+        public IActionResult DetailsOfAnimal(int id)
+        {
+            var fetchAnimalName = context.Animals.Where(x => x.ANIMAL_ID == id).Select(y => y.NAME).FirstOrDefault();
+            ViewBag.animalName = fetchAnimalName;
+            var fetchAnimal = context.Animals.Include(y=>y.Kind).Where(x => x.ANIMAL_ID == id).FirstOrDefault();
+            return View(fetchAnimal);
         }
     }
 }
