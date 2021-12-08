@@ -37,6 +37,7 @@ namespace AnimalAdoptionWebSite.Models
         [Display(Name = "Şehir")]
         public string CITY { get; set; }
 
+        [Display(Name = "Fotoğraf")]
         public string PHOTO { get; set; }
 
         [Display(Name = "Mevcut Durumu")]

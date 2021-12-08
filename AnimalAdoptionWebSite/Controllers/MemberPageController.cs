@@ -1,5 +1,9 @@
 ﻿using AnimalAdoptionWebSite.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,10 +14,13 @@ namespace AnimalAdoptionWebSite.Controllers
 {
     public class MemberPageController : Controller
     {
+        private readonly IHtmlLocalizer<MemberPageController> _localizer;
         private readonly Context context;
-        public MemberPageController(Context context)
+
+        public MemberPageController(Context context, IHtmlLocalizer<MemberPageController> localizer)
         {
             this.context = context;
+            _localizer = localizer;
         }
 
         [HttpGet]
@@ -23,7 +30,15 @@ namespace AnimalAdoptionWebSite.Controllers
             return View(ListOfAnimal);
         }
 
-        //giriş yapan üyeye ait bilgileri profil kısmına getirmek için yazdıgım actionlar
+        [HttpPost, AllowAnonymous]
+        public IActionResult CultureManagement(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
+
+            return LocalRedirect(returnUrl);
+        }
+
         [HttpGet]
         public IActionResult Profile()
         {
@@ -32,6 +47,7 @@ namespace AnimalAdoptionWebSite.Controllers
             var fetchMemberID = context.Members.Where(x => x.MAIL == fetchMemberMail).Select(y => y.MEMBER_ID).FirstOrDefault();
             //Id sini bildiğim üye nesnesini aldım
             var fetchMember = context.Members.Where(x => x.MEMBER_ID == fetchMemberID).FirstOrDefault();
+            ViewBag.NameSurname = fetchMember.NAMESURNAME; //giriş yapanın isim soyismini viewbage aldım
             return View(fetchMember);
         }
         [HttpPost]

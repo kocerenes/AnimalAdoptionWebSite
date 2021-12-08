@@ -1,4 +1,5 @@
 ﻿@model AnimalAdoptionWebSite.Models.Animal
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 @{
     ViewData["Title"] = "DetailsOfAnimal";
@@ -6,38 +7,45 @@
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-<h3 style="margin-top:30px;">@ViewBag.animalName Detayları</h3>
+<h3 style="margin-top:30px;">@ViewBag.animalName @localizer["Bilgileri"]</h3>
 
 <table class="table table-hover">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th>
-                @Html.DisplayNameFor(model => model.Kind)
+                @*@Html.DisplayNameFor(model => model.Kind)*@
+                @localizer["Tür Adı"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NAME)
+                @*@Html.DisplayNameFor(model => model.NAME)*@
+                @localizer["İsim"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GENUS)
+                @*@Html.DisplayNameFor(model => model.GENUS)*@
+                @localizer["Cins"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AGE)
+                @*@Html.DisplayNameFor(model => model.AGE)*@
+                @localizer["Yaş"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CITY)
+                @*@Html.DisplayNameFor(model => model.CITY)*@
+                @localizer["Şehir"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PHOTO)
+                @*@Html.DisplayNameFor(model => model.PHOTO)*@
+                @localizer["Fotoğraf"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.STATUS)
+                @*@Html.DisplayNameFor(model => model.STATUS)*@
+                @localizer["Mevcut Durumu"]
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 
-        <tr>
+        <tr class="text-center">
             <td>
                 @Html.DisplayFor(modelItem => modelItem.Kind.TYPE_NAME)
             </td>

@@ -4,13 +4,17 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +32,24 @@ namespace AnimalAdoptionWebSite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //en-tr dil seçenekleri
+            services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+
+            services.Configure<RequestLocalizationOptions>(
+
+                opt =>
+                {
+                    var supportedCulteres = new List<CultureInfo>
+                    {
+                        new CultureInfo("en"),
+                        new CultureInfo("tr")
+                    };
+                    opt.DefaultRequestCulture = new RequestCulture("en");
+                    opt.SupportedUICultures = supportedCulteres;
+                });
+            //en-tr dil seçenekleri
+
             services.AddControllersWithViews();
             var connection = @"server=.;database=AnimalAdoption;trusted_connection=true;";
             services.AddDbContext<Context>(obtions => obtions.UseSqlServer(connection));
@@ -69,6 +91,10 @@ namespace AnimalAdoptionWebSite
             app.UseRouting();
 
             app.UseAuthorization(); //Authorization
+
+            //en-tr dil seçenekleri
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+            //en-tr dil seçenekleri
 
             app.UseEndpoints(endpoints =>
             {

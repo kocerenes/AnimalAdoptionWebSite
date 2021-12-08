@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<AnimalAdoptionWebSite.Models.Adoption>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 @{
     ViewData["Title"] = "ListOfAdoption";
@@ -6,39 +7,40 @@
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-<h3 style="margin-top:30px;">Sahiplenme Geçmişiniz</h3>
+<h3 style="margin-top:30px;">@localizer["Sahiplenme Geçmişiniz"] </h3>
 
 <table class="table table-striped">
     <thead>
         <tr class="text-center">
             <th>
-                @Html.DisplayNameFor(model => model.Member)
+                @localizer["Üye"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Animal)
+                @localizer["Hayvanın İsmi"]
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DATE)
+                @localizer["Tarih"]
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr class="text-center">
-            <td>
-                @Html.DisplayFor(modelItem => item.Member.NAMESURNAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Animal.NAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DATE)
-            </td>
-            <td>
-                <a asp-action="DetailsOfAnimal" asp-route-id="@item.Animal.ANIMAL_ID" class="btn btn-success">Detaylar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Member.NAMESURNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animal.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATE)
+                </td>
+                <td>
+                    <a asp-action="DetailsOfAnimal" asp-route-id="@item.Animal.ANIMAL_ID" class="btn btn-success">@localizer["Detaylar"]</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<AnimalAdoptionWebSite.Models.Animal>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
@@ -15,12 +17,12 @@
                     <img class="card-img-top" src="@item.PHOTO" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text">
-                            İsmi : @Html.DisplayFor(modelItem => item.NAME) <br />
-                            Cinsi : @Html.DisplayFor(modelItem => item.GENUS) <br />
-                            Yaşı : @Html.DisplayFor(modelItem => item.AGE) <br />
-                            Bulunduğu Şehir : @Html.DisplayFor(modelItem => item.CITY)
+                            @localizer["İsmi"] : @Html.DisplayFor(modelItem => item.NAME) <br />
+                            @localizer["Cinsi"] : @Html.DisplayFor(modelItem => item.GENUS) <br />
+                            @localizer["Yaşı"] : @Html.DisplayFor(modelItem => item.AGE) <br />
+                            @localizer["Şehir"] : @Html.DisplayFor(modelItem => item.CITY)
                         </p>
-                        <a asp-action="CreateAdoption" asp-route-id="@item.ANIMAL_ID" class="btn btn-info">Sahiplen</a>
+                        <a asp-action="CreateAdoption" asp-route-id="@item.ANIMAL_ID" class="btn btn-info">@localizer["Sahiplen"]</a>
 
                     </div>
                 </div>
