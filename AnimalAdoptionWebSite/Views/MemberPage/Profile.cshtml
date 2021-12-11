@@ -6,9 +6,9 @@
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <h3 style="margin-top:30px;">@localizer["Profilinize Hoşgeldiniz"] @ViewBag.NameSurname</h3>
-
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -41,10 +41,15 @@
                 <span asp-validation-for="ABOUT" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value=@localizer["Kaydet"] class="btn btn-warning" />
+                <input type="submit" id="update" value=@localizer["Kaydet"] class="btn btn-warning" />
             </div>
         </form>
     </div>
 </div>
 
-
+@*güncelleme işlemi gerçeleşirse mesaj çıkacak*@
+<script>
+    $('#update').click(function () {
+        alert("Profilinizi güncelleme işlemi başarıyla tamamlandı.");
+    });
+</script>

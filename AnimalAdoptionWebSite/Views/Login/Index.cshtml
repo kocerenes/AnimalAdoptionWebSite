@@ -7,6 +7,7 @@
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <section>
     <div class="container">
@@ -22,7 +23,7 @@
                         <label>Şifre</label>
                         <input asp-for="PASSWORD" type="password" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-success submit mb-4">Giriş Yap</button>
+                    <button type="submit" id="login" class="btn btn-success submit mb-4">Giriş Yap</button>
                     @*<input type="submit" value="Sign In" class="btn btn-primary" />*@
                     <p><a asp-controller="Register" asp-action="Index"> Hesabın yok mu?</a></p>
                 </form>
@@ -31,3 +32,20 @@
     </div>
 </section>
 
+@*giriş bilgileri eksik veya hatalıysa mesaj döndüren script*@
+@if (TempData["error"] != null)
+{
+    <script>
+        $('#login').click(function () {
+            alert('@TempData["error"]');
+        });
+    </script>
+}
+else
+{
+    <script>
+        $('#login').click(function () {
+            alert("Giriş işlemi başarılı.");
+        });
+    </script>
+}

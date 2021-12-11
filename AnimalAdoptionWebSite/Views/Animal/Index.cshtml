@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <h3 style="margin-top:30px;">Hayvan İşlemleri</h3>
 
@@ -55,7 +56,7 @@
             </td>
             <td>
                 <a asp-action="GetAnimal" asp-route-id="@item.ANIMAL_ID" class="btn btn-warning">Güncelle</a> 
-                <a asp-action="DeleteAnimal" asp-route-id="@item.ANIMAL_ID" class="btn btn-danger">Sil</a>
+                <a asp-action="DeleteAnimal" asp-route-id="@item.ANIMAL_ID" onclick="myFunction()" class="btn btn-danger">Sil</a>
             </td>
         </tr>
 }
@@ -64,3 +65,10 @@
 <p>
     <a asp-action="AddAnimal" class="btn btn-primary">Yeni Oluştur</a>
 </p>
+
+@*metod şeklinde script yazıp alert çıkardım*@
+<script>
+    function myFunction() {
+        alert("Silme işlemi başarıyla tamamlandı.");
+    }
+</script>

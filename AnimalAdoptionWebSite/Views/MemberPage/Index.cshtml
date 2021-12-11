@@ -7,6 +7,7 @@
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <div class="container">
     <div class="row">
@@ -22,7 +23,7 @@
                             @localizer["Yaşı"] : @Html.DisplayFor(modelItem => item.AGE) <br />
                             @localizer["Şehir"] : @Html.DisplayFor(modelItem => item.CITY)
                         </p>
-                        <a asp-action="CreateAdoption" asp-route-id="@item.ANIMAL_ID" class="btn btn-info">@localizer["Sahiplen"]</a>
+                        <a asp-action="CreateAdoption" asp-route-id="@item.ANIMAL_ID" onclick="myFunction()" class="btn btn-info">@localizer["Sahiplen"]</a>
 
                     </div>
                 </div>
@@ -30,5 +31,11 @@
 
         }
     </div>
-
 </div>
+
+@*metod şeklinde script yazıp alert çıkardım*@
+<script>
+    function myFunction() {
+        alert("Sahiplenme işlemi başarıyla gerçekleşti.");
+    }
+</script>

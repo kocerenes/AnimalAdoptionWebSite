@@ -35,7 +35,7 @@ namespace AnimalAdoptionWebSite.Controllers
         {
             context.Kinds.Add(kind);
             context.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         //Türü silmek için action

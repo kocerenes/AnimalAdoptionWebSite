@@ -6,6 +6,7 @@
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <h3 style="margin-top:30px;">Tür Güncelleme</h3>
 <hr />
@@ -20,7 +21,7 @@
                 <span asp-validation-for="TYPE_NAME" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Kaydet" class="btn btn-primary" />
+                <input type="submit" id="update" value="Kaydet" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -30,3 +31,9 @@
     <a asp-action="Index">Listeye Geri Dön</a>
 </div>
 
+@*güncelleme işlemi gerçeleşirse mesaj çıkacak*@
+<script>
+    $('#update').click(function () {
+        alert("Güncelleme işlemi başarıyla tamamlandı.");
+    });
+</script>

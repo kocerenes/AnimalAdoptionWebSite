@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <h3 style="margin-top:30px;">TÜR İŞLEMLERİ</h3>
 
@@ -18,19 +19,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TYPE_NAME)
-            </td>
-            <td class="text-right">
-                <a asp-action="GetKind" asp-route-id="@item.KIND_ID" class="btn btn-warning">Güncelle</a> 
-                <a asp-action="DeleteKind" asp-route-id="@item.KIND_ID" class="btn btn-danger">Sil</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TYPE_NAME)
+                </td>
+                <td class="text-right">
+                    <a asp-action="GetKind" asp-route-id="@item.KIND_ID" class="btn btn-warning">Güncelle</a>
+                    <a asp-action="DeleteKind" asp-route-id="@item.KIND_ID" onclick="myFunction()" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <p>
     <a asp-action="AddKind" class="btn btn-primary">Yeni Tür Ekle</a>
 </p>
+
+@*metod şeklinde script yazıp alert çıkardım*@
+<script>
+    function myFunction() {
+        alert("Silme işlemi başarıyla tamamlandı.");
+    }
+</script>
