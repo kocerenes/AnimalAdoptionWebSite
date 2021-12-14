@@ -1,70 +1,18 @@
-﻿@*<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - AnimalAdoptionWebSite</title>
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AnimalAdoptionWebSite</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
-
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2021 - AnimalAdoptionWebSite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
-    </body>
-    </html>*@
-
-
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="~/css/home_layout.css" rel="stylesheet" />
 </head>
 <body>
 
     <div class="header">
-        <a asp-controller="Home" asp-action="Index" class="logo">Animal Adoption</a>
+        <a asp-controller="Home" asp-action="Index" class="logo">@localizer["Hayvan Sahiplendirme"]</a>
         <div class="header-right">
-            @*<a href="#"><i class="glyphicon glyphicon-home">&nbsp;Ana Sayfa</i></a>*@
-            <a asp-controller="Register" asp-action="Index" class="btn btn-outline-info"><i>&nbsp;Üye Ol</i></a>
-            <a asp-controller="Login" asp-action="Index" class="loginAdmin btn btn-info"><i>&nbsp;Giriş Yap</i></a>
-            @*<a asp-controller="" class="loginMember"><i>&nbsp;Üye Giriş</i></a>*@
-
+            <a href="#"><partial name="_Culture" /></a>
+            <a asp-controller="Register" asp-action="Index" class="btn btn-outline-info"><i>&nbsp;@localizer["Üye Ol"]</i></a>
+            <a asp-controller="Login" asp-action="Index" class="loginAdmin btn btn-info"><i>&nbsp;@localizer["Giriş Yap"]</i></a>
         </div>
     </div>
 

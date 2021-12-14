@@ -15,10 +15,10 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ANIMAL_ID" />
             @*<div class="form-group">
-                    <label asp-for="KIND_ID" class="control-label"></label>
-                    <select asp-for="KIND_ID" class="form-control" asp-items="ViewBag.KIND_ID"></select>
-                    <span asp-validation-for="KIND_ID" class="text-danger"></span>
-                </div>*@
+            <label asp-for="KIND_ID" class="control-label"></label>
+            <select asp-for="KIND_ID" class="form-control" asp-items="ViewBag.KIND_ID"></select>
+            <span asp-validation-for="KIND_ID" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="NAME" class="control-label"></label>
                 <input asp-for="NAME" class="form-control" />
@@ -38,6 +38,11 @@
                 <label asp-for="CITY" class="control-label"></label>
                 <input asp-for="CITY" class="form-control" />
                 <span asp-validation-for="CITY" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PHOTO" class="control-label"></label>
+                <input asp-for="PHOTO" class="form-control" />
+                <span asp-validation-for="PHOTO" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">

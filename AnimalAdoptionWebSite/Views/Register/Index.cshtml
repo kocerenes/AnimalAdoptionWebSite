@@ -1,4 +1,5 @@
-﻿
+﻿@model AnimalAdoptionWebSite.Models.Member
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,49 +10,49 @@
 
 <section>
     <div class="container">
-        <h3 class="text-center p-3">Kayıt Olma Formu</h3>
+        <h3 class="text-center p-3">@localizer["Kayıt Olma Formu"]</h3>
         <div>
             <div class="p-5 bg-light mx-auto mw-100 w-50">
                 <form action="#" method="post">
-                    <div class="form-row" >
+                    <div class="form-row">
                         <div class="col-md-12 mb-3">
-                            <label>Ad Soyad*</label>
-                            <input type="text" class="form-control" name="NAMESURNAME" placeholder="">
+                            <label>@localizer["Ad Soyad*"]</label>
+                            <input type="text" class="form-control" name="NAMESURNAME" placeholder="" required="">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label>Mail*</label>
-                            <input type="email" class="form-control" name="MAIL" placeholder="">
+                            <label>@localizer["Mail*"]</label>
+                            <input type="email" class="form-control" name="MAIL" placeholder="" required="">
                         </div>
 
                         <div class="form-group col-md-12">
-                            <label for="">Şifre*</label>
-                            <input type="password" class="form-control" name="PASSWORD" placeholder="">
+                            <label for="">@localizer["Şifre*"]</label>
+                            <input type="password" class="form-control" name="PASSWORD" placeholder="" required="">
                         </div>
 
                         <div class="form-group col-md-12">
-                            <label>Yaş*</label>
-                            <input type="number" class="form-control" name="AGE" placeholder="">
+                            <label>@localizer["Yaş*"]</label>
+                            <input type="number" class="form-control" name="AGE" placeholder="" required="">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label for="">Telefon Numarası</label>
+                            <label for="">@localizer["Telefon Numarası"]</label>
                             <input type="tel" class="form-control" name="PHONENUMBER" placeholder="">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label>Adres*</label>
+                            <label>@localizer["Adres*"]</label>
                             <input type="text" class="form-control" name="ADDRESS" placeholder="" required="">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label>Hakkınızda</label>
+                            <label>@localizer["Hakkınızda"]</label>
                             <input type="text" class="form-control" name="ABOUT" placeholder="">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success submit mb-4">Kayıt ol</button>
+                    <button type="submit" class="btn btn-success submit mb-4">@localizer["Kayıt Ol"]</button>
                     <p>
-                        <a asp-controller="Login" asp-action="Index">Zaten üyeyim</a>
+                        <a asp-controller="Login" asp-action="Index">@localizer["Zaten üyeyim"]</a>
                     </p>
                 </form>
 

@@ -1,5 +1,5 @@
 ﻿@model AnimalAdoptionWebSite.Models.Admin
-
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,21 +11,21 @@
 
 <section>
     <div class="container">
-        <h3 class="text-center p-3">Giriş Yap</h3>
+        <h3 class="text-center p-3">@localizer["Giriş Yap"]</h3>
         <div class="row">
             <div class="login p-5 bg-light mx-auto mw-100">
                 <form asp-action="Index" method="post">
                     <div class="form-group">
-                        <label>Mail Adresi</label>
+                        <label>@localizer["Mail Adres"]</label>
                         <input asp-for="MAIL" type="email" class="form-control" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
-                        <label>Şifre</label>
+                        <label>@localizer["Şifre"]</label>
                         <input asp-for="PASSWORD" type="password" class="form-control">
                     </div>
-                    <button type="submit" id="login" class="btn btn-success submit mb-4">Giriş Yap</button>
+                    <button type="submit" id="login" class="btn btn-success submit mb-4">@localizer["Giriş Yap"]</button>
                     @*<input type="submit" value="Sign In" class="btn btn-primary" />*@
-                    <p><a asp-controller="Register" asp-action="Index"> Hesabın yok mu?</a></p>
+                    <p><a asp-controller="Register" asp-action="Index"> @localizer["Hesabın yok mu?"]</a></p>
                 </form>
             </div>
         </div>

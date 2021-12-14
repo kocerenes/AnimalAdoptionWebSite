@@ -72,6 +72,7 @@ namespace AnimalAdoptionWebSite.Controllers
             fetchAnimal.GENUS = animal.GENUS;
             fetchAnimal.AGE = animal.AGE;
             fetchAnimal.CITY = animal.CITY;
+            fetchAnimal.PHOTO = animal.PHOTO;
             fetchAnimal.STATUS = animal.STATUS;
             context.SaveChanges();
             return RedirectToAction("Index");
