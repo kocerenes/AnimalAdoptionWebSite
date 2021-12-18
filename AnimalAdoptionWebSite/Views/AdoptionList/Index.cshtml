@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AnimalAdoptionWebSite.Models.Adoption>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-3 m-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" style="width:auto; height:200px;" src="@item.Animal.PHOTO" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Üye : @Html.DisplayFor(modelItem => item.Member.NAMESURNAME) <br />
+                            Üye iletişim : @Html.DisplayFor(modelItem => item.Member.MAIL) <br />
+                            Hayvan : @Html.DisplayFor(modelItem => item.Animal.NAME) <br />
+                            Sahiplenme tarihi : @Html.DisplayFor(modelItem => item.DATE) <br />
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>
+
+

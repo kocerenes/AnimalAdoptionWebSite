@@ -25,11 +25,6 @@ body {
         border-radius: 4px;
     }
 
-.logout {
-    background-color: red;
-    color: ghostwhite;
-}
-
 .header a.logo {
     font-size: 25px;
     font-weight: bold;

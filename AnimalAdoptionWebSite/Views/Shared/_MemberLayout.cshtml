@@ -13,12 +13,12 @@
 <body>
 
     <div class="header">
-        <a asp-controller="MemberPage" asp-action="Index" class="logo">@localizer["Hayvan Sahiplendirme"]</a>
+        <a asp-controller="MemberPage" asp-action="Index" class="logo btn">@localizer["Hayvan Sahiplendirme"]</a>
         <div class="header-right">
             <a href="#"><partial name="_Culture" /></a>
-            <a asp-controller="MemberPage" asp-action="Profile"><i class="glyphicon glyphicon-home">&nbsp;@localizer["Profil"]</i></a>
-            <a asp-controller="MemberPage" asp-action="Index"><i class="glyphicon glyphicon-home">&nbsp;@localizer["Hayvanlar"]</i></a>
-            <a asp-controller="MemberPage" asp-action="ListOfAdoption"><i class="glyphicon glyphicon-home">&nbsp;@localizer["Sahiplenme Geçmişi"]</i></a>
+            <a asp-controller="MemberPage" asp-action="Profile" class="btn"><i class="glyphicon glyphicon-home">&nbsp;@localizer["Profil"]</i></a>
+            <a asp-controller="MemberPage" asp-action="Index" class="btn"><i class="glyphicon glyphicon-home">&nbsp;@localizer["Hayvanlar"]</i></a>
+            <a asp-controller="MemberPage" asp-action="ListOfAdoption" class="btn"><i class="glyphicon glyphicon-home">&nbsp;@localizer["Sahiplenme Geçmişi"]</i></a>
             <a asp-controller="Login" asp-action="Logout" class="btn btn-danger"><i>&nbsp;@localizer["Çıkış"]</i></a>
         </div>
     </div>
