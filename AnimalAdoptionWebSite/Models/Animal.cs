@@ -14,8 +14,8 @@ namespace AnimalAdoptionWebSite.Models
 
         //her hayvanın bir türü olur
         [ForeignKey("Kind")]
-        public byte KIND_ID { get; set; }
         [Display(Name = "Tür Adı")]
+        public byte KIND_ID { get; set; }
         public Kind Kind { get; set; }
 
         [Required(ErrorMessage = "Bu alanı doldurmak zorunlu!")]

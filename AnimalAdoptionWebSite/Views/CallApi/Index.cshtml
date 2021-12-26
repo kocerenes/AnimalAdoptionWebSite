@@ -2,9 +2,10 @@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 @{
-    ViewData["Title"] = "DetailsOfAnimal";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
+
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
 <h3 style="margin-top:30px;">@ViewBag.animalName @localizer["Bilgileri"]</h3>
@@ -55,7 +56,7 @@
                 @Html.DisplayFor(modelItem => modelItem.CITY)
             </td>
             <td>
-                <img src="@Model.PHOTO" alt="Alternate Text" style="width:80px;height:40px;"/>
+                <img src="@Model.PHOTO" alt="Alternate Text" style="width:80px;height:40px;" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => modelItem.STATUS)
@@ -65,3 +66,4 @@
         </tr>
     </tbody>
 </table>
+

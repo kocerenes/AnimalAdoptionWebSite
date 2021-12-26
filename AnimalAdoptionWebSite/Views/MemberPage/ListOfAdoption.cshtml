@@ -38,6 +38,7 @@
                     @Html.DisplayFor(modelItem => item.DATE)
                 </td>
                 <td>
+                    @*<a asp-controller="CallApi" asp-action="Index" asp-route-id="@item.Animal.ANIMAL_ID" class="btn btn-success">@localizer["Detaylar"]</a>*@
                     <a asp-action="DetailsOfAnimal" asp-route-id="@item.Animal.ANIMAL_ID" class="btn btn-success">@localizer["Detaylar"]</a>
                 </td>
             </tr>

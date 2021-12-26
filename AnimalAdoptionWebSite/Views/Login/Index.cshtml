@@ -17,14 +17,13 @@
                 <form asp-action="Index" method="post">
                     <div class="form-group">
                         <label>@localizer["Mail Adres"]</label>
-                        <input asp-for="MAIL" type="email" class="form-control" aria-describedby="emailHelp">
+                        <input asp-for="MAIL" type="email" class="form-control" aria-describedby="emailHelp" required="">
                     </div>
                     <div class="form-group">
                         <label>@localizer["Şifre"]</label>
-                        <input asp-for="PASSWORD" type="password" class="form-control">
+                        <input asp-for="PASSWORD" type="password" class="form-control" required="">
                     </div>
                     <button type="submit" id="login" class="btn btn-success submit mb-4">@localizer["Giriş Yap"]</button>
-                    @*<input type="submit" value="Sign In" class="btn btn-primary" />*@
                     <p><a asp-controller="Register" asp-action="Index"> @localizer["Hesabın yok mu?"]</a></p>
                 </form>
             </div>
@@ -33,7 +32,7 @@
 </section>
 
 @*giriş bilgileri eksik veya hatalıysa mesaj döndüren script*@
-@if (TempData["error"] != null)
+@*@if (TempData["error"] != null)
 {
     <script>
         $('#login').click(function () {
@@ -48,4 +47,4 @@ else
             alert("Giriş işlemi başarılı.");
         });
     </script>
-}
+}*@

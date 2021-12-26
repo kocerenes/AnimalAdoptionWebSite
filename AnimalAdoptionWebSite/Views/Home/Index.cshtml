@@ -12,19 +12,6 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            @*<div class="col-3 m-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" style="width:auto; height:200px;" src="@item.PHOTO" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">
-                            @localizer["İsim"] : @Html.DisplayFor(modelItem => item.NAME) <br />
-                            @localizer["Cinsi"] : @Html.DisplayFor(modelItem => item.GENUS) <br />
-                            @localizer["Yaşı"] : @Html.DisplayFor(modelItem => item.AGE) <br />
-                            @localizer["Şehir"] : @Html.DisplayFor(modelItem => item.CITY)
-                        </p>
-                    </div>
-                </div>
-            </div>*@
             <div class="col-3 m-3 flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">

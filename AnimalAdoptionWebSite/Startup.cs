@@ -54,7 +54,6 @@ namespace AnimalAdoptionWebSite
             var connection = @"server=.;database=AnimalAdoption;trusted_connection=true;";
             services.AddDbContext<Context>(obtions => obtions.UseSqlServer(connection));
 
-
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();

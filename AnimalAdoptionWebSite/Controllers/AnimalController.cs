@@ -41,8 +41,6 @@ namespace AnimalAdoptionWebSite.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddAnimal(Animal animal)
         {
-            //var fetchKind = context.Kinds.Where(x => x.KIND_ID == animal.Kind.KIND_ID).FirstOrDefault();
-            //animal.Kind = fetchKind;
             context.Animals.Add(animal);
             context.SaveChanges();
             return RedirectToAction("Index");

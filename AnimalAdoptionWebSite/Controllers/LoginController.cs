@@ -55,7 +55,7 @@ namespace AnimalAdoptionWebSite.Controllers
             }
             else
             {
-                TempData["error"] = "Bilgileriniz eksik veya hatali. Lutfen kontrol edin!";
+                //TempData["error"] = "Bilgileriniz eksik veya hatali. Lutfen kontrol edin!";
                 return View();
             }
         }

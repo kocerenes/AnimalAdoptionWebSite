@@ -13,6 +13,9 @@
     <thead>
         <tr style="text-align: center;">
             <th>
+                @Html.DisplayNameFor(model => model.PHOTO)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Kind.TYPE_NAME)
             </th>
             <th>
@@ -37,6 +40,9 @@
 @foreach (var item in Model) {
         <tr style="text-align: center;">
             <td>
+                <img src="@item.PHOTO" alt="Alternate Text" style="width:80px;height:40px;" />
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Kind.TYPE_NAME)
             </td>
             <td>
@@ -55,7 +61,7 @@
                 @Html.DisplayFor(modelItem => item.STATUS)
             </td>
             <td>
-                <a asp-action="GetAnimal" asp-route-id="@item.ANIMAL_ID" class="btn btn-warning">Güncelle</a> 
+                <a asp-action="GetAnimal" asp-route-id="@item.ANIMAL_ID" class="btn btn-warning">Güncelle</a>
                 <a asp-action="DeleteAnimal" asp-route-id="@item.ANIMAL_ID" onclick="myFunction()" class="btn btn-danger">Sil</a>
             </td>
         </tr>
